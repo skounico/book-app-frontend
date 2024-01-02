@@ -1,8 +1,6 @@
 'use client'
 
 import * as React from 'react';
-import axiosClient from '../app/services/axiosClient'
-import { useEffect } from 'react';
 
 export default function Home () {
   const [bookName, setBookName] = React.useState('')

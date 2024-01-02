@@ -1,15 +1,14 @@
 import axiosClient from "@/app/services/axiosClient";
-import React from "react";
 import { Book } from "../../interfaces/types";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Avatar, List, ListItem, ListItemAvatar, ListItemText } from "@mui/material";
 import AutoStoriesTwoToneIcon from '@mui/icons-material/AutoStoriesTwoTone';
 
 
 export default function BookCards() {
-    const [bookData, setBookData] = React.useState<Book[]>();
+    const [bookData, setBookData] = useState<Book[]>();
 
-    //fetch data from api
+    
     useEffect(() => {
         const fetchData = async () => {
           try {
@@ -33,7 +32,7 @@ export default function BookCards() {
           {
             bookData?.map((book) => {
               return (
-                  <ListItem sx={{ width: '100%', maxWidth: 360, bgcolor: 'lightblue', borderRadius: '5px', margin: '5px'}}>
+                  <ListItem key={book.id} sx={{ width: '100%', maxWidth: 360, bgcolor: 'lightblue', borderRadius: '5px', margin: '5px'}}>
                     <ListItemAvatar>
                       <Avatar>
                         <AutoStoriesTwoToneIcon />
